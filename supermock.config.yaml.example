@@ -1,0 +1,29 @@
+# SuperMock Configuration File (YAML)
+
+server:
+  host: localhost
+  port: 8081
+  debug: false
+
+bot:
+  id: 123456789
+  first_name: MockBot
+  username: mock_bot
+  can_join_groups: true
+  can_read_all_group_messages: false
+  supports_inline_queries: false
+
+user:
+  id: 12345
+  first_name: TestUser
+  username: test_user
+
+logging:
+  enabled: true
+  level: INFO  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: null  # Set to file path to enable file logging, e.g., "supermock.log"
+
+features:
+  save_history: true
+  history_file: .supermock_history.json
+  auto_save_interval: 60  # seconds

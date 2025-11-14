@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  supermock:
+    build: .
+    ports:
+      - "8081:8081"
+    environment:
+      - SUPERMOCK_HOST=0.0.0.0
+      - SUPERMOCK_PORT=8081
+    volumes:
+      # Optional: mount config file
+      # - ./supermock.config.yaml:/app/supermock.config.yaml
+      # Optional: persist history
+      - supermock-data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081/bottest/getMe"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  supermock-data:
